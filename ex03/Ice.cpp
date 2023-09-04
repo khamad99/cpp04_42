@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:39:59 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/02 22:40:34 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/04 07:09:25 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Ice::Ice() : AMateria("ice")
 
 Ice::Ice(Ice const & src) : AMateria(src)
 {
-    *this = src;
 }
 
 Ice::~Ice()

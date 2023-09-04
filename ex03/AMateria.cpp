@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 08:02:24 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/03 08:46:24 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/04 07:13:27 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,3 @@ void AMateria::use(ICharacter& target)
 {
     std::cout << "AMateria " << this->_type << " used on " << target.getName() << std::endl;
 }
-
-AMateria* AMateria::clone() const
-{
-    return (AMateria*)this;
-}
-
