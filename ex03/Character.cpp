@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:44:18 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/03 11:09:18 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:23:54 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 Character::Character() : _name("Defult")
 {
     for (int i = 0; i < 4; i++)
-        this->_materias[i] = NULL;
-    
+        this->_materias[i] = NULL;    
 }
 
 Character::Character(std::string const & name) : _name(name)
@@ -27,7 +26,10 @@ Character::Character(std::string const & name) : _name(name)
 
 Character::Character(Character const & src)
 {
-    *this = src;
+    this->_name = src._name;
+    for (int i = 0; i < 4; i++)
+        if (src._materias[i])
+            this->_materias[i] = src._materias[i]->clone();
 }
 
 Character::~Character()
@@ -75,7 +77,7 @@ void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4)
     {
-        delete this->_materias[idx];
+        this->_leftOver.setLeftOver(this->_materias[idx]);
         this->_materias[idx] = NULL;
     }
 }
