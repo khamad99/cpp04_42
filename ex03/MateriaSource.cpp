@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:01:28 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/03 21:55:21 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/07 09:27:07 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
         if (this->_materia[i])
+        {
             delete this->_materia[i];
+            this->_materia[i] = NULL;
+        }
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & src)
@@ -40,7 +43,10 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & src)
     {
         for (int i = 0; i < 4; i++)
             if (this->_materia[i])
+            {
                 delete this->_materia[i];
+                this->_materia[i] = NULL;
+            }
         
         for (int i = 0; i < 4; i++)
             if (src._materia[i])

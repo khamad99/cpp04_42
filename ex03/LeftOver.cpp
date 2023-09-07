@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 13:18:39 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/04 13:26:24 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/07 09:26:47 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ LeftOver::LeftOver(LeftOver const & src)
 LeftOver::~LeftOver()
 {
     if (this->_leftOver)
+    {
         delete this->_leftOver;
+        this->_leftOver = NULL;
+    }
 }
 
 LeftOver & LeftOver::operator=(LeftOver const & src)
@@ -38,6 +41,9 @@ LeftOver & LeftOver::operator=(LeftOver const & src)
 void LeftOver::setLeftOver(AMateria* m)
 {
     if (this->_leftOver)
+    {
         delete this->_leftOver;
+        this->_leftOver = NULL;
+    }
     this->_leftOver = m;
 }

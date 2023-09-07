@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:44:18 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/04 13:23:54 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:27:59 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@ Character::Character(Character const & src)
 Character::~Character()
 {
     for (int i = 0; i < 4; i++)
+    {
         if (this->_materias[i])
+        {
             delete this->_materias[i];
+            this->_materias[i] = NULL;
+        }
+    }
 }
 
 Character & Character::operator=(Character const & src)
@@ -46,7 +51,10 @@ Character & Character::operator=(Character const & src)
         this->_name = src._name;
         for (int i = 0; i < 4; i++)
             if (this->_materias[i])
+            {
                 delete this->_materias[i];
+                this->_materias[i] = NULL;
+            }
         for (int i = 0; i < 4; i++)
             if (src._materias[i])
                 this->_materias[i] = src._materias[i]->clone();
@@ -63,7 +71,9 @@ void Character::equip(AMateria* m)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (!this->_materias[i])
+        if (this->_materias[i] == m)
+            break;
+        if (this->_materias[i] == NULL && m)
         {
             this->_materias[i] = m;
             break;
