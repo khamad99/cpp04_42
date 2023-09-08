@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:44:18 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/08 19:53:46 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/09 02:30:05 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,31 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if (m->getEquiped() == 1)
+    {
+        std::cout << "You can't equip the same materia twice!" << std::endl;
+        return ;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (this->_materias[i] == m)
-            break;
-        if (this->_materias[i] == NULL && m)
+            return ;
+        if (this->_materias[i] == NULL && m != NULL)
         {
+            for (int j = 0; j < MAX_LEFTOVER; j++)
+            {
+                if (this->_leftOver.getLeftOver()[j] == m)
+                {
+                    this->_materias[i] = m;
+                    m->setEquiped(1);
+                    this->_leftOver.getLeftOver()[j] = NULL;
+                    return;
+                }
+            }
             this->_materias[i] = m;
-            break;
+            m->setEquiped(1);
+            return ;
         }
-        if ( i == 3 && this->_materias[i])
-            delete m;
     }
 }
 
@@ -87,8 +101,12 @@ void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4)
     {
-        this->_leftOver.setLeftOver(this->_materias[idx]);
-        this->_materias[idx] = NULL;
+        if (this->_materias[idx])
+        {
+            this->_leftOver.setLeftOver(this->_materias[idx]);
+            this->_materias[idx]->setEquiped(0);
+            this->_materias[idx] = NULL;
+        }
     }
 }
 

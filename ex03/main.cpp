@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:02:58 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/08 19:56:54 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/09 02:36:20 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,11 @@ int main()
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
+    
 
     ICharacter* bob = new Character("bob");
 
+    
     me->unequip(0);
 
     me->use(0, *bob);
@@ -223,6 +221,38 @@ int main()
     p1.equip(m4);
 
     p1.use(0, p1);
+
+    }
+
+    std::cout << "---------------------" << std::endl;
+
+    {
+    AMateria *m = new Ice();
+    AMateria *m2 = new Ice();
+    AMateria *m3 = new Ice();
+    AMateria *m4 = new Ice();
+    AMateria *m5 = new Cure();
+
+    Character p1("Khaled");
+    Character p2("Hamed");
+
+    p1.equip(m);
+    p1.equip(m2);
+    p1.equip(m3);
+    p1.equip(m4);
+    p1.equip(m5);
+    p2.equip(m);
+
+
+    p1.use(0, p1);
+
+    p1.unequip(0);
+    p1.unequip(0);
+    p1.unequip(1);
+    p1.unequip(2);
+    p1.equip(m2);
+
+    delete m5;
 
     }
 

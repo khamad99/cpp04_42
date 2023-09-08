@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:35:10 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/07 11:24:41 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/09 01:23:29 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Cure : public AMateria
         Cure & operator=(Cure const & src);
         AMateria* clone() const;
         void use(ICharacter& target);
+        void setEquiped(int i);
+        int getEquiped() const;
 };
 
 #endif
