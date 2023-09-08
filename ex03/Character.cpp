@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:44:18 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/07 14:27:59 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:53:46 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,14 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx < 4 && this->_materias[idx])
+    {
+        if (&target == this)
+        {
+            std::cout << "You can't use materia on yourself!" << std::endl;
+            return ;
+        }
+        else
         this->_materias[idx]->use(target);
+    }
 }
 

@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:29:46 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/08/28 14:41:20 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:44:18 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,4 @@ AAnimal & AAnimal::operator=(AAnimal const & src)
 std::string AAnimal::getType() const
 {
     return (this->_type);
-}
-
-void AAnimal::makeSound() const
-{
-    std::cout << "Animal makes a sound" << std::endl;
 }

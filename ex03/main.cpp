@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:02:58 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/08 08:15:02 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:56:54 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,25 @@ int main()
     src.learnMateria(m);
     src.learnMateria(m);
 
+    }
 
+    std::cout << "---------------------" << std::endl;
+
+    {
+    AMateria *m = new Ice();
+    AMateria *m2 = new Ice();
+    AMateria *m3 = new Ice();
+    AMateria *m4 = new Ice();
+
+    Character p1("Khaled");
+
+    p1.equip(m);
+    p1.equip(m2);
+    p1.equip(m3);
+    p1.equip(m4);
+    p1.equip(m4);
+
+    p1.use(0, p1);
 
     }
 
