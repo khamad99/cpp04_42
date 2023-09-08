@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:01:28 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/07 09:27:07 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/08 08:15:12 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void MateriaSource::learnMateria(AMateria* m)
 {
     for (int i = 0; i < 4; i++)
     {
+        if (this->_materia[i] == m)
+            break;
         if (!this->_materia[i])
         {
             this->_materia[i] = m;
