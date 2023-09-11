@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:44:18 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/09 02:30:05 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/11 07:22:23 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,6 @@ void Character::equip(AMateria* m)
             return ;
         if (this->_materias[i] == NULL && m != NULL)
         {
-            for (int j = 0; j < MAX_LEFTOVER; j++)
-            {
-                if (this->_leftOver.getLeftOver()[j] == m)
-                {
-                    this->_materias[i] = m;
-                    m->setEquiped(1);
-                    this->_leftOver.getLeftOver()[j] = NULL;
-                    return;
-                }
-            }
             this->_materias[i] = m;
             m->setEquiped(1);
             return ;
@@ -103,7 +93,6 @@ void Character::unequip(int idx)
     {
         if (this->_materias[idx])
         {
-            this->_leftOver.setLeftOver(this->_materias[idx]);
             this->_materias[idx]->setEquiped(0);
             this->_materias[idx] = NULL;
         }
@@ -124,3 +113,9 @@ void Character::use(int idx, ICharacter& target)
     }
 }
 
+AMateria *Character::getMateria(int idx) const
+{
+    if (idx >= 0 && idx < 4 && this->_materias[idx])
+        return (this->_materias[idx]);
+    return (NULL);
+}

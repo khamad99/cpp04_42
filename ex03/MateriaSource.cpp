@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:01:28 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/09/08 08:15:12 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/09/10 22:12:05 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,7 @@ void MateriaSource::learnMateria(AMateria* m)
             this->_materia[i] = m;
             break;
         }
-        if ( i == 3 && this->_materia[i])
-            delete m;
     }
-
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
